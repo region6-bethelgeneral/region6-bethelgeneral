@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BETHEL GENERAL INSURANCE AND SURETY CORPORATION</title>
+    <style>
+        body {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: black;
+            background-color: white;
+        }
+        header {
+            background-color: white;
+            color: darkblue;
+            padding: 3px 0;
+            text-align: center;
+            position: relative;
+        }
+        header img {
+            max-width: 100px;
+            margin-bottom: 0px;
+        }
+        header h1 {
+            font-size: 2.0em;
+            margin: 0;
+        }
+        header h2 {
+            font-size: 1.5em;
+            margin-top: 0px;
+        }
+        .navbar {
+            display: flex;
+            justify-content: center;
+            background-color: darkblue;
+            color: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .navbar a {
+            color: #fff;
+            padding: 15px 20px;
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+        .navbar a:hover {
+            background-color: #f9a825;
+        }
+        .gallery-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            padding: 20px;
+        }
+        .gallery-item {
+            width: 200px;
+            height: auto;
+            overflow: hidden;
+            cursor: pointer;
+            position: relative;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 900px;
+            height: auto;
+        }
+        .modal-content img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+        }
+        footer {
+            width: 100%;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 14px;
+            position: relative;
+        }
+        footer button {
+            background-color: #555;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        footer button:hover {
+            background-color: #777;
+        }
+        .scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .scroll-to-top.show {
+            opacity: 1;
+        }
+        @media (max-width: 768px) {
+            .gallery-item {
+                width: 100%; /* Adjust to full width on smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="/WEB/logo.jpg" alt="Bethel Insurance Logo">
+        <h1>BETHEL GENERAL INSURANCE AND SURETY CORPORATION</h1>
+        <h2>REGION 6 WESTERN VISAYAS</h2>
+    </header>
+    <nav class="navbar">
+        <a href="/WEB/bethelgeneral.html#about">About Us</a>
+        <a href="/WEB/bethelgeneral.html#branches">Branches</a>
+        <a href="/WEB/bethelgeneral.html#business-lines">Line of Business</a>
+        <a href="/WEB/bethelgeneral.html#contact-information">Contact Information</a>
+        <a href="/WEB/bethelgeneral.html#location">Location</a>
+    </nav>
+
+
+    <div class="gallery-container">
+        <div class="gallery-item" onclick="openModal('/WEB/ofc.jpg.jpg')">
+            <img src="/WEB/ofc.jpg" alt="Image 1">
+        </div>
+        <div class="gallery-item" onclick="openModal('/WEB/antiofc.jpg')">
+            <img src="/WEB/antiofc.jpg" alt="Image 2">
+        </div>
+        <div class="gallery-item" onclick="openModal('/WEB/anniv.jpg')">
+            <img src="/WEB/anniv.jpg" alt="Image 3">
+        </div>
+        <div class="gallery-item" onclick="openModal('/WEB/anniv2.jpg')">
+            <img src="/WEB/anniv2.jpg" alt="Image 4">
+        <!-- Add more images as needed -->
+    </div>
+
+    <!-- Modal Structure -->
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <script>
+        function openModal(imageSrc) {
+            const modal = document.getElementById('myModal');
+            const modalImage = document.getElementById('modalImage');
+            modal.style.display = "flex"; // Show the modal
+            modalImage.src = imageSrc;
+        }
+        
+        function closeModal() {
+            const modal = document.getElementById('myModal');
+            modal.style.display = "none"; // Hide the modal
+        }
+        
+        window.onclick = function(event) {
+            if (event.target === document.getElementById('myModal')) {
+                closeModal();
+            }
+        }
+
+        // Function to scroll to the top of the page
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Show or hide the "Jump to Top" button based on scroll position
+        window.addEventListener('scroll', () => {
+            const button = document.querySelector('.scroll-to-top');
+            if (window.scrollY > 300) {
+                button.classList.add('show');
+            } else {
+                button.classList.remove('show');
+            }
+        });
+    </script>
+
+    <footer>
+        <button onclick="scrollToTop()">Jump to Top</button>
+        <p>&copy; 2024 Bethel General Insurance and Surety Corporation Region 6 Western Visayas. All rights reserved.</p>
+    </footer>
+    <button class="scroll-to-top" onclick="scrollToTop()">↑</button>
+</body>
+</html>

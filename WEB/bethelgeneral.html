@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bethel General Insurance and Surety Corporation Region 6 Western Visayas</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: black;
+            background-color: white;
+        }
+        header {
+            background-color: white; /* Dark blue */
+            color: darkblue;
+            padding: 3px 0;
+            text-align: center;
+            position: relative;
+        }
+        header img {
+            max-width: 100px;
+            margin-bottom: 0px;
+        }
+        header h1 {
+            font-size: 2.0em;
+            margin: 0;
+        }
+        header p {
+            font-size: 1.5em;
+            margin-top: 0px;
+        }
+        .container {
+            max-width: auto;
+            margin: 0 auto;
+            padding: 35px;
+        }
+        .navbar {
+            display: flex;
+            justify-content: center;
+            background-color: darkblue;
+            color: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .navbar a {
+            color: #fff;
+            padding: 15px 20px;
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+        .navbar a:hover {
+            background-color: #f9a825; /* Gold color on hover */
+        }
+        .section {
+            margin-bottom: 40px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .section h2 {
+            color: #283593;
+            border-bottom: 2px solid #f9a825;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+        .branches {
+            display: block;
+        }
+        .branch {
+            background-color: darkblue;
+            color: black;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .branch:hover {
+            transform: translateY(-5px);
+            background-color: orange;
+        }
+        .business-lines {
+            display: block;
+        }
+        .business-line {
+            background-color: darkblue;
+
+            color: black;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .business-line:hover {
+            transform: translateY(-5px);
+            background-color: orange;
+        }
+        .contact-info {
+            background-color: #283593;
+            color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            text-align: center;
+        }
+          
+        
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        ul li {
+            margin: 10px 0;
+        }
+        ul li::before {
+            content: "✔";
+            color: #283593;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+ 
+
+        slideshow-container {
+            position: relative;
+            width: 100%;
+            max-width: 100%;
+            height: auto; /* Adjust height as needed */
+            overflow: hidden;
+            background: white; /* Optional: Background color if images don't cover fully */
+        }
+        .slides-wrapper {
+            display: flex;
+            transition: transform 1s ease-in-out;
+            width: 100%;
+            height: auto; /* Adjust height as needed */
+        }
+        .slide {
+            min-width: 100%;
+            height: auto; /* Adjust height as needed */
+            box-sizing: border-box;
+            position: relative;
+            overflow: hidden; /* Ensure images do not overflow */
+        }
+        .slide img {
+            width: 100%;
+            height: auto;
+            object-fit: contain; /* Maintain aspect ratio and fit within the slide */
+            display: block;
+        }
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8); /* Black overlay with 50% opacity */
+            z-index: 1; /* Ensure it's behind the text but on top of the image */
+        }
+        
+        .text-overlay {
+            position: absolute;
+            top: 50%;  /* Center vertically */
+            left: 50%; /* Center horizontally */
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 40px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-style: italic;
+            text-align: center;
+            animation: fadeInOut 4s ease-in-out infinite;
+            padding: 10px 20px;
+            border-radius: 5px;
+            z-index: 2;  /* Ensure it's on top of the image */
+        }
+        @keyframes fadeInOut {
+            0%, 100% {
+                opacity: 0;
+            }
+            25%, 75% {
+                opacity: 1;
+            }
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:black; /* Optional overlay for the entire slide */
+            z-index: 1;
+        }
+        .control-button {
+            position: static;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 5px;
+        }
+        .iloilo-link {
+            color: white;
+            text-decoration: none;
+            font-weight: normal;
+            transition: color 0.3s ease;
+        }
+        .iloilo-link:hover {
+            color: white;
+        }
+        .bacolod-link {
+            color: white;
+            text-decoration: none;
+            font-weight: normal;
+            transition: color 0.3s ease;
+        }
+        .bacolod-link:hover {
+            color: white;
+        }
+        .antique-link {
+            color: white;
+            text-decoration: none;
+            font-weight: normal;
+            transition: color 0.3s ease;
+        }
+        .antique-link:hover {
+            color: white;
+        }
+        .car-link {
+            color: white;
+            text-decoration: none;
+            font-weight: normal;
+            transition: color 0.3s ease;
+        }
+        .car-link:hover {
+            color: white;
+        }
+        .accident-link {
+            color: white;
+            text-decoration: none;
+            font-weight: normal;
+            transition: color 0.3s ease;
+        }
+        .accident-link:hover {
+            color: white;
+        }
+        .fire-link {
+            color: white;
+            text-decoration: none;
+            font-weight: normal;
+            transition: color 0.3s ease;
+        }
+        .fire-link:hover {
+            color: white;
+        }
+        .marine-link {
+            color: white;
+            text-decoration: none;
+            font-weight: normal;
+            transition: color 0.3s ease;
+        }
+        .marine-link:hover {
+            color: white;
+        }
+        .bond-link {
+            color: white;
+            text-decoration: none;
+            font-weight: normal;
+            transition: color 0.3s ease;
+        }
+        .bond-link:hover {
+            color: white;
+        }
+        .property-link {
+            color: white;
+            text-decoration: none;
+            font-weight: normal;
+            transition: color 0.3s ease;
+        }
+        .property-link:hover {
+            color: white;
+        }
+        .contractor-link {
+            color: white;
+            text-decoration: none;
+            font-weight: normal;
+            transition: color 0.3s ease;
+        }
+        .contractor-link:hover {
+            color: white;
+        }
+        .liability-link {
+            color: white;
+            text-decoration: none;
+            font-weight: normal;
+            transition: color 0.3s ease;
+        }
+        .liability-link:hover {
+            color: white;
+        }
+        .money-link {
+            color: white;
+            text-decoration: none;
+            font-weight: normal;
+            transition: color 0.3s ease;
+        }
+        .money-link:hover {
+            color: white;
+        }
+        .fidelity-link {
+            color: white;
+            text-decoration: none;
+            font-weight: normal;
+            transition: color 0.3s ease;
+        }
+        .fidelity-link:hover {
+            color: white;
+        }
+        .hull-link {
+            color: white;
+            text-decoration: none;
+            font-weight: normal;
+            transition: color 0.3s ease;
+        }
+        .hull-link:hover {
+            color: white;
+        }
+        .marina-link {
+            color: white;
+            text-decoration: none;
+            font-weight: normal;
+            transition: color 0.3s ease;
+        }
+        .marina-link:hover {
+            color: white;
+        }
+        .erection-link {
+            color: white;
+            text-decoration: none;
+            font-weight: normal;
+            transition: color 0.3s ease;
+        }
+        .erection-link:hover {
+            color: white;
+        }
+
+        .prev {
+            left: 10px;
+        }
+        .next {
+            right: 10px;
+        }
+        footer {
+            width: 100%;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 14px;
+            position: relative;
+        }
+
+        footer button {
+            background-color: #555;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        footer button:hover {
+            background-color: #777;
+        }
+
+        /* Style for the "Jump to Top" button */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .scroll-to-top.show {
+            opacity: 1;
+        }
+        
+            </style>
+        </head>
+        <body>
+            <header>
+                <img src="logo.jpg" alt="Bethel Insurance Logo">
+                <h1>BETHEL GENERAL INSURANCE AND SURETY CORPORATION</h1>
+                <h2>REGION 6 WESTERN VISAYAS</h2>
+            </header>
+        
+            <nav class="navbar">
+                <a href="/WEB/bethelgeneral.html#about">About Us</a>
+                <a href="/WEB/bethelgeneral.html#branches">Branches</a>
+                <a href="/WEB/bethelgeneral.html#business-lines">Line of Business</a>
+                <a href="/WEB/bethelgeneral.html#contact-information">Contact Information</a>
+                <a href="/WEB/bethelgeneral.html#location">Location</a>
+            </nav>
+        
+            <div class="slideshow-container">
+                <div class="slides-wrapper">
+                    <div class="slide">
+                        <div class="image-overlay"></div> <!-- Black overlay -->
+                        <img src="conference.jpg" style="width: 100%">
+                        <div class="text-overlay">We provide the insurance that works for you</div>
+                    </div>
+                    <div class="slide">
+                        <div class="image-overlay"></div> <!-- Black overlay -->
+                        <img src="maam.jpg" style="width: 100%">
+                        <div class="text-overlay">We are hiring underwriters and account executives that can be assigned in Iloilo and Bacolod</div>
+                    </div>
+                    <div class="slide">
+                        <div class="image-overlay"></div> <!-- Black overlay -->
+                        <img src="staff.jpg" style="width: 100%">
+                        <div class="text-overlay">Send us your resume at bethelgen.iloilo1@gmail.com</div>
+                    </div>
+                </div>
+
+        
+                <!-- Control Buttons -->
+                <button class="control-button prev" onclick="previousSlide()">&#10094;</button>
+                <button class="control-button next" onclick="nextSlide()">&#10095;</button>
+            </div>
+        
+            <div class="container">
+                <section id="about" class="section about">
+                    <h2>About Us</h2>
+                    <p>We provide insurance by using innovative and forward-looking approaches to meet the demands of a constantly changing world.</p>
+                    <p>We accept Grab Cars, Taxi, & Modernized Jeepney Transport for comprehensive insurance at a very affordable price.</p>
+                </section>
+        
+                <section id="branches" class="section branches">
+                    <h2>Branches</h2>
+                    <div class="branch">
+                        <a href="BETHEL\iloilo.html" class="iloilo-link">
+                            <div class="box">ILOILO CITY - REGIONAL OFFICE
+                              </div>
+                            </a>
+                    </div>
+                    <div class="branch">
+                        <a href="BETHEL\bacolod.html" class="bacolod-link">
+                            <div class="box">
+                                BACOLOD CITY
+                              </div>
+                            </a>
+                    </div>
+                    <div class="branch">
+                        <a href="BETHEL\antique.html" class="antique-link">
+                            <div class="box">
+                               ANTIQUE PROVINCE
+                              </div>
+                            </a>
+                    </div>
+                </section>
+        
+                <section id="business-lines" class="section business-lines">
+                    <h2>Line of Business</h2>
+                    <div class="business-line">
+                        <a href="BETHEL\bond.html" class="bond-link">
+                            <div class="box">
+                                BOND
+                              </div>
+                            </a>
+                    </div>
+                    <div class="business-line">
+                        <a href="BETHEL\fire.html" class="fire-link">
+                            <div class="box">
+                                FIRE INSURANCE
+                              </div>
+                            </a>
+                    </div>
+                    <div class="business-line">
+                        <a href="BETHEL\car.html" class="car-link">
+                            <div class="box">
+                               MOTOR CAR INSURANCE
+                              </div>
+                            </a>
+                    </div>
+                    <div class="business-line">
+                        <a href="BETHEL\marine.html" class="marine-link">
+                            <div class="box">
+                                MARINE INSURANCE
+                              </div>
+                            </a>
+                    </div>
+                    <div class="business-line">
+                        <a href="BETHEL\property.html" class="property-link">
+                            <div class="box">
+                               CASUALTY INSURANCE
+                              </div>
+                            </a>
+                    </div>
+                    <div class="business-line">
+                        <a href="BETHEL\contractor.html" class="contractor-link">
+                            <div class="box">
+                                ENGINEERING LINES INSURANCE
+                              </div>
+                            </a>
+                    </div>
+                </section>
+        
+                <section id="contact-information" class="section contact-information">
+                    <h2>Contact Information</h2>
+                    <div class="contact-information">
+                        <p>For more information please call or message us:</p>
+                        <p>Contact Number: 0915-600-7168</p>
+                        <p>Facebook Account: ILO BETHEL GEN</p>
+                        <p>Gmail Account: bethelgen.iloilo@gmail.com</p>
+                    </div>
+                </section>
+        
+                <section id="location" class="section location">
+                    <h2>Location</h2>
+                    <p>2nd Floor, Room 2, The Galleria Building, Pacencia Tiam Avenue, San Rafael, Mandurriao, Iloilo City (Atria District)</p>
+                        <div class="map-responsive">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62723.661704411024!2d122.51242742368655!3d10.716823593514242!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33aee59a915e6a83%3A0x13ab6d66cae66d5!2sGALLERIA%20ATRIA!5e0!3m2!1sen!2sph!4v1722958826703!5m2!1sen!2sph" width="600" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </section>
+                    
+                </section>
+            </div>
+        
+            <script>
+                let slideIndex = 0;
+                const slidesWrapper = document.querySelector('.slides-wrapper');
+                const totalSlides = document.querySelectorAll('.slide').length;
+        
+                function showSlides() {
+                    slideIndex++;
+                    if (slideIndex >= totalSlides) {
+                        slideIndex = 0;
+                    }
+                    updateSlidePosition();
+                    setTimeout(showSlides, 5000); // Change image every 5 seconds
+                }
+        
+                function nextSlide() {
+                    slideIndex++;
+                    if (slideIndex >= totalSlides) {
+                        slideIndex = 0;
+                    }
+                    updateSlidePosition();
+                }
+        
+                function previousSlide() {
+                    slideIndex--;
+                    if (slideIndex < 0) {
+                        slideIndex = totalSlides - 1;
+                    }
+                    updateSlidePosition();
+                }
+        
+                function updateSlidePosition() {
+                    const offset = -slideIndex * 100; // Calculate the offset in percentage
+                    slidesWrapper.style.transition = 'transform 1s ease-in-out';
+                    slidesWrapper.style.transform = `translateX(${offset}%)`;
+                }
+        
+                showSlides(); // Start the automatic slideshow
+        
+            </script>
+            
+ <footer>
+    <button onclick="scrollToTop()">Jump to Top</button>
+    <p>&copy; 2024 Bethel General Insurance and Surety Corporation Region 6 Western Visayas. All rights reserved.</p>
+</footer>
+<button class="scroll-to-top" onclick="scrollToTop()">↑</button>
+<script>
+    // Function to scroll to the top of the page
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Show or hide the "Jump to Top" button based on scroll position
+    window.addEventListener('scroll', () => {
+        const button = document.querySelector('.scroll-to-top');
+        if (window.scrollY > 300) {
+            button.classList.add('show');
+        } else {
+            button.classList.remove('show');
+        }
+    });
+</script>
+
+        </body>
+        </html>
+        
